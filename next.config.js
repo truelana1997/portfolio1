@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  basePath: '/portfolio1',
   images: {
     domains: [
       'i.scdn.co',
@@ -9,7 +11,7 @@ const nextConfig = {
       'miro.medium.com',
       'cdn-images-1.medium.com'
     ],
-    unoptimized: false
+    unoptimized: true
   }
 };
 
