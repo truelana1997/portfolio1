@@ -5,6 +5,7 @@ import Lenis from 'lenis';
 import ProjectHero from '@/app/projects/project/hero';
 import Image from 'next/image';
 import TextGradient from '@/components/animations/textAnimations/textGradient';
+import { assetUrl } from '@/lib/basePath';
 
 export default function AstraProject() {
   useEffect(() => {
@@ -16,13 +17,13 @@ export default function AstraProject() {
   }, []);
 
   const researchImages = [
-    '/images/axo/astronaut.png',
-    '/images/axo/prototype.png',
-    '/images/axo/concept.png',
-    '/images/axo/poster1.png',
-    '/images/axo/poster2.png',
-    '/images/axo/poster3.png',
-    '/images/axo/poster4.png'
+    assetUrl('/images/axo/astronaut.png'),
+    assetUrl('/images/axo/prototype.png'),
+    assetUrl('/images/axo/concept.png'),
+    assetUrl('/images/axo/poster1.png'),
+    assetUrl('/images/axo/poster2.png'),
+    assetUrl('/images/axo/poster3.png'),
+    assetUrl('/images/axo/poster4.png')
   ];
   ``;
   const phrase =

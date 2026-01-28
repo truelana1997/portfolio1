@@ -4,6 +4,7 @@ import { useContext, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import Link from 'next/link';
 import { ModalContext } from '@/app/projects/modalContext';
+import { assetUrl } from '@/lib/basePath';
 
 const scaleAnimation = {
   initial: { scale: 0, x: '-50%', y: '-50%' },
@@ -106,7 +107,7 @@ export default function Modal({ projects }: ModalProps) {
                 key={`modal_${index}`}
               >
                 <Image
-                  src={`/images/${src}`}
+                  src={assetUrl(`/images/${src}`)}
                   width={350}
                   height={0}
                   alt="image"

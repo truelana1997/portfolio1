@@ -6,14 +6,15 @@ import Picture3 from '../../../../public/images/m31/gold.webp';
 import Picture2 from '../../../../public/images/m31/logoblack.png';
 import Image from 'next/image';
 import React from 'react';
+import { assetUrl } from '@/lib/basePath';
 
 export default function M31Project() {
   const researchAssets = [
-    '/images/m31/controller.png',
-    '/images/m31/app.png',
-    '/images/m31/packaging.png',
-    '/images/m31/research.png',
-    '/images/m31/specs.png'
+    assetUrl('/images/m31/controller.png'),
+    assetUrl('/images/m31/app.png'),
+    assetUrl('/images/m31/packaging.png'),
+    assetUrl('/images/m31/research.png'),
+    assetUrl('/images/m31/specs.png')
   ];
   const introduction =
     'Andromeda is a new audio-tactile gaming system that promotes socially inclusive play between visually impaired and sighted individuals. ' +

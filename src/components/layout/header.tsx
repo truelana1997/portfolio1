@@ -9,6 +9,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { isMobile } from '@/components/util';
 import Magnetic from '@/components/animations/magnetic';
 import Image from 'next/image';
+import { assetUrl } from '@/lib/basePath';
 
 export default function Header() {
   const header = useRef(null);
@@ -57,7 +58,7 @@ export default function Header() {
               <Image
                 height={32}
                 width={32}
-                src="/images/logo.jpg"
+                src={assetUrl('/images/logo.jpg')}
                 alt="Bettinas logo"
                 priority
               />

@@ -3,6 +3,7 @@
 import Description from '@/components/animations/smoothScroll/description';
 import Intro from '@/components/animations/smoothScroll/intro';
 import Body from '@/components/animations/smoothScroll/body';
+import { assetUrl } from '@/lib/basePath';
 
 export default function OneThoughtADayProject() {
   const introduction = [
@@ -45,7 +46,7 @@ export default function OneThoughtADayProject() {
   return (
     <div className="bg-white">
       <Intro
-        images={['/images/onethoughtaday/homepage.jpg']}
+        images={[assetUrl('/images/onethoughtaday/homepage.jpg')]}
         title={'OneThoughtADay'}
       />
       <div className="bg-[#FFF8E7] py-10">

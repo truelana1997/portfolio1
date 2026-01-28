@@ -9,9 +9,10 @@ import Picture2 from '../../../../public/images/bike.png';
 import Picture3 from '../../../../public/images/bike.png';
 import PageScrollParallax from '@/components/pageScrollParallax';
 import TextGradient from '@/components/animations/textAnimations/textGradient';
+import { assetUrl } from '@/lib/basePath';
 
 export default function TandemProject() {
-  const researchImages = ['/images/bike.png', '/images/bike.png'];
+  const researchImages = [assetUrl('/images/bike.png'), assetUrl('/images/bike.png')];
 
   const phrase =
     'By 2050, there will be more plastic than fish in the ocean by weight. ' +
@@ -49,7 +50,7 @@ export default function TandemProject() {
     <div>
       <ProjectHero
         description={heroText}
-        media={'/images/bike.png'}
+        media={assetUrl('/images/bike.png')}
         isImage={true}
         title={'StackeRs'}
         bgColour={'background'}

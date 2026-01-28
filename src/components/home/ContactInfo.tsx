@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Magnetic from '@/components/animations/magnetic';
 import RoundedButton from '@/components/animations/roundedButton';
 import Link from 'next/link';
+import { assetUrl } from '@/lib/basePath';
 
 export default function ContactInfo() {
   const [timeNow, setTimeNow] = useState(
@@ -43,7 +44,7 @@ export default function ContactInfo() {
               <Image
                 fill
                 alt={'profile'}
-                src={`/images/profile2.jpg`}
+                src={assetUrl('/images/profile2.jpg')}
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />

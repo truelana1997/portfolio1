@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import Lenis from 'lenis';
 import ProjectHero from '@/app/projects/project/hero';
 import Image from 'next/image';
+import { assetUrl } from '@/lib/basePath';
 
 export default function StyleSync() {
   const heroText =
@@ -40,7 +41,7 @@ export default function StyleSync() {
     <div className="pt-10">
       <ProjectHero
         description={heroText}
-        media={'/images/stylesync/hero.svg'}
+        media={assetUrl('/images/stylesync/hero.svg')}
         isImage={true}
         title={'AI Fashion-Music Curator'}
         bgColour={'background'}
@@ -50,7 +51,7 @@ export default function StyleSync() {
         <div className="mb-8 flex h-auto w-full justify-center">
           <div className="text-center">
             <Image
-              src="/images/stylesync/diagram.png"
+              src={assetUrl('/images/stylesync/diagram.png')}
               alt="system diagram"
               width={800}
               height={400}
@@ -75,7 +76,7 @@ export default function StyleSync() {
           </ol>
           <div>
             <Image
-              src="/images/stylesync/board.png"
+              src={assetUrl('/images/stylesync/board.png')}
               alt="Clothing Tagging"
               width={400}
               height={400}
@@ -105,7 +106,7 @@ export default function StyleSync() {
             </li>
             <div className="flex justify-center">
               <Image
-                src="/images/stylesync/normalised.png"
+                src={assetUrl('/images/stylesync/normalised.png')}
                 alt="Clothing Tagging"
                 width={900}
                 height={400}
@@ -119,7 +120,7 @@ export default function StyleSync() {
               optimal number of clusters (k=4) was determined using the elbow
               method.
               <Image
-                src="/images/stylesync/elbow.png"
+                src={assetUrl('/images/stylesync/elbow.png')}
                 alt="system diagram"
                 width={500}
                 height={400}
@@ -130,7 +131,7 @@ export default function StyleSync() {
               the high-dimensional data, PCA was employed, revealing clear
               separation between the four identified clusters.
               <Image
-                src="/images/stylesync/pca.png"
+                src={assetUrl('/images/stylesync/pca.png')}
                 alt="system diagram"
                 width={500}
                 height={400}
@@ -162,7 +163,7 @@ export default function StyleSync() {
               <div className="image-placeholder">Cluster Mean Values Chart</div>
             </section>
             <Image
-              src="/images/stylesync/clusters.png"
+              src={assetUrl('/images/stylesync/clusters.png')}
               alt="CLuster Mean Values Chart"
               width={500}
               height={400}
@@ -189,7 +190,7 @@ export default function StyleSync() {
           <div className="mt-6">Random Forest Confusion Matrix</div>
           <div className="flex justify-center">
             <Image
-              src="/images/stylesync/confusion.png"
+              src={assetUrl('/images/stylesync/confusion.png')}
               alt="CLuster Mean Values Chart"
               width={800}
               height={400}

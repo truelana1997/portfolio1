@@ -9,6 +9,7 @@ import Picture2 from '../../../../public/images/bottles/blue.png';
 import Picture3 from '../../../../public/images/bottles/block.png';
 import PageScrollParallax from '@/components/pageScrollParallax';
 import TextGradient from '@/components/animations/textAnimations/textGradient';
+import { assetUrl } from '@/lib/basePath';
 
 export default function StackersProject() {
   useEffect(() => {
@@ -20,8 +21,8 @@ export default function StackersProject() {
   }, []);
 
   const researchImages = [
-    '/images/bottles/stack1.png',
-    '/images/bottles/stack2.png'
+    assetUrl('/images/bottles/stack1.png'),
+    assetUrl('/images/bottles/stack2.png')
   ];
 
   const phrase =
@@ -60,7 +61,7 @@ export default function StackersProject() {
     <div>
       <ProjectHero
         description={heroText}
-        media={'/images/bottles/block.png'}
+        media={assetUrl('/images/bottles/block.png')}
         isImage={true}
         title={'StackeRs'}
         bgColour={'background'}

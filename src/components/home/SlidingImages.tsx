@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import RoundedButton from '@/components/animations/roundedButton';
 import Link from 'next/link';
+import { assetUrl } from '@/lib/basePath';
 
 type Slider = {
   color: string;
@@ -40,7 +41,7 @@ export default function SlidingImages({ slider1, slider2 }: Props) {
             <div className="relative h-full w-full">
               <Image
                 alt="image"
-                src={`/images/${project.src}`}
+                src={assetUrl(`/images/${project.src}`)}
                 fill
                 objectFit="contain"
               />
@@ -62,7 +63,7 @@ export default function SlidingImages({ slider1, slider2 }: Props) {
               <Image
                 fill
                 alt="image"
-                src={`/images/${project.src}`}
+                src={assetUrl(`/images/${project.src}`)}
                 objectFit="contain"
               />
             </div>

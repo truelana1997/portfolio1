@@ -9,6 +9,7 @@ import { useGitHub } from '@/hooks/useGithub';
 import GitHubContributionsGraph from '@/app/about/githubActivity';
 import SpotifyPlaylists from '@/app/about/spotifyPlaylists';
 import Link from 'next/link';
+import { assetUrl } from '@/lib/basePath';
 
 export default function About() {
   const starsRef = useRef<HTMLDivElement>(null);
@@ -66,7 +67,7 @@ export default function About() {
                     className="relative z-10 mx-auto h-auto w-full max-w-sm rounded-t-full shadow-lg"
                     width={1440}
                     height={1800}
-                    src="/images/profile2.jpg"
+                    src={assetUrl('/images/profile2.jpg')}
                     alt="Profile picture"
                   />
                 </div>

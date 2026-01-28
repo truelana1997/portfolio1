@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import Layout from '@/components/layout';
 import Image from 'next/image';
 import Link from 'next/link';
+import { assetUrl } from '@/lib/basePath';
 
 // Gallery items data
 const galleryItems = [
@@ -10,7 +11,7 @@ const galleryItems = [
     id: 'onethoughtaday',
     title: 'One Thought A Day',
     description: 'A minimalist journaling application with elegant typography',
-    imagePath: '/images/onethoughtaday/homepage.png',
+    imagePath: assetUrl('/images/onethoughtaday/homepage.png'),
     link: 'https://www.onethoughtaday.com',
     tags: ['UI/UX Design', 'Minimalism']
   }
