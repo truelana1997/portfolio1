@@ -7,10 +7,26 @@ import RoundedButton from '@/components/animations/roundedButton';
 import Link from 'next/link';
 import { assetUrl } from '@/lib/basePath';
 
-export default function ContactInfo() {
-  const [timeNow, setTimeNow] = useState(
-    new Date().getHours() + ':' + new Date().getMinutes()
+const TIME_ZONE = 'Europe/Amsterdam';
+
+function getTimezoneCity(): string {
+  const part = TIME_ZONE.split('/').pop() ?? TIME_ZONE;
+  return part.replace(/_/g, ' ');
+}
+
+function getTimezoneAbbr(): string {
+  return (
+    new Intl.DateTimeFormat('en-GB', {
+      timeZone: TIME_ZONE,
+      timeZoneName: 'short'
+    })
+      .formatToParts(new Date())
+      .find((p) => p.type === 'timeZoneName')?.value ?? TIME_ZONE
   );
+}
+
+export default function ContactInfo() {
+  const [timeNow, setTimeNow] = useState('--:--');
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -24,12 +40,18 @@ export default function ContactInfo() {
     "after:ease-linear after:content-[''] hover:after:w-full";
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeNow(new Date().toLocaleTimeString());
-    }, 1000);
-
+    const updateTime = () =>
+      setTimeNow(
+        new Date().toLocaleTimeString('en-GB', {
+          hour: '2-digit',
+          minute: '2-digit',
+          timeZone: TIME_ZONE
+        })
+      );
+    updateTime();
+    const interval = setInterval(updateTime, 60000);
     return () => clearInterval(interval);
-  }, [timeNow]);
+  }, []);
 
   return (
     <motion.div
@@ -66,7 +88,7 @@ export default function ContactInfo() {
           </motion.div>
         </div>
         <div className="mt-6 flex gap-5 sm:mx-[100px]">
-          <RoundedButton>bettinasosarohl@gmail.com</RoundedButton>
+          <RoundedButton>lanabachaliashvili@gmail.com</RoundedButton>
         </div>
 
         <div className="mt-20 flex flex-col justify-between p-5 2xs:mt-52 sm:mx-[100px] sm:mt-48 sm:flex-row">
@@ -79,14 +101,14 @@ export default function ContactInfo() {
               <h3 className="m-0 cursor-default p-1 text-base font-light text-gray-500">
                 Version
               </h3>
-              <p className="relative m-0 cursor-pointer p-1">2024 © Edition</p>
+              <p className="relative m-0 cursor-pointer p-1">2026 © Edition</p>
             </span>
             <span className="flex flex-col gap-3">
               <h3 className="m-0 cursor-default p-1 text-base font-light text-gray-500">
                 Timezone
               </h3>
               <p className="relative m-0 cursor-pointer p-1">
-                {timeNow} UK (GMT+1)
+                {`${timeNow} (${getTimezoneCity()}, ${getTimezoneAbbr()})`}
               </p>
             </span>
           </div>
@@ -114,7 +136,7 @@ export default function ContactInfo() {
             </Magnetic>
             <Magnetic>
               <Link
-                href="https://www.linkedin.com/in/bettina-sosa/"
+                href="https://nl.linkedin.com/in/lana-bachaliashvili-825432110"
                 className={animatedUnderlineStyle}
               >
                 Linkedin
