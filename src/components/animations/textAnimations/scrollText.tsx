@@ -4,11 +4,22 @@ import { MutableRefObject, useEffect, useRef } from 'react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const creativity = 'Creativity ';
-const is = 'is ';
-const my = 'my ';
-const craft = 'craft';
-const sentence3 = 'abstract thinking is my passion';
+// Line 1: Hey, I am Lana,
+const word1 = 'Hey,';
+const word2 = 'I';
+const word3 = 'am';
+const word4 = 'Lana,';
+// Line 2: and I am obsessed with creativity
+const word5 = 'and';
+const word6 = 'I';
+const word7 = 'am';
+const word8 = 'obsessed';
+const word9 = 'with';
+const word10 = 'creativity';
+
+function WordSpacer() {
+  return <div className="w-2 shrink-0 xs:w-4 sm:w-6" aria-hidden />;
+}
 
 function getRandomSpeed() {
   const randomDecimal = Math.random();
@@ -45,7 +56,7 @@ function LetterDisplay({ word }: { word: string }) {
   return word.split('').map((letter, index) => (
     <div
       key={index}
-      className="letter text-6xl font-semibold xs:text-[90px] xs:leading-none md:text-[120px] lg:text-[150px] xl:text-[210px] "
+      className="letter text-4xl font-semibold xs:text-[56px] xs:leading-none md:text-[72px] lg:text-[96px] xl:text-[128px] "
       data-speed={getRandomSpeed()}
     >
       {letter}
@@ -65,18 +76,27 @@ export function LetterCollision() {
     <div ref={containerRef} className="ml-8 scroll-smooth">
       <div className="-mt-28 mb-36 flex h-screen flex-col justify-end lg:mb-24">
         <div className="flex flex-wrap p-0">
-          <LetterDisplay word={creativity} />
-          <div className="w-2 xs:w-4 sm:w-10"></div>
-          <LetterDisplay word={is} />
+          <LetterDisplay word={word1} />
+          <WordSpacer />
+          <LetterDisplay word={word2} />
+          <WordSpacer />
+          <LetterDisplay word={word3} />
+          <WordSpacer />
+          <LetterDisplay word={word4} />
         </div>
         <div className="flex flex-wrap">
-          <LetterDisplay word={my} />
-          <div className="w-2 xs:w-4 sm:w-10"></div>
-          <LetterDisplay word={craft} />
+          <LetterDisplay word={word5} />
+          <WordSpacer />
+          <LetterDisplay word={word6} />
+          <WordSpacer />
+          <LetterDisplay word={word7} />
+          <WordSpacer />
+          <LetterDisplay word={word8} />
+          <WordSpacer />
+          <LetterDisplay word={word9} />
+          <WordSpacer />
+          <LetterDisplay word={word10} />
         </div>
-      </div>
-      <div className="flex flex-wrap">
-        <LetterDisplay word={sentence3} />
       </div>
     </div>
   );
