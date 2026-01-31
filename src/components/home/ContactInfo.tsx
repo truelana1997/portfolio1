@@ -136,7 +136,7 @@ export default function ContactInfo() {
             </Magnetic>
             <Magnetic>
               <Link
-                href="https://nl.linkedin.com/in/lana-bachaliashvili-825432110"
+                href="https://linkedin.com/in/lana-bachaliashvili-825432110"
                 className={animatedUnderlineStyle}
               >
                 Linkedin

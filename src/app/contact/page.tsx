@@ -37,20 +37,22 @@ export default function Contact() {
       <div className="flex min-h-screen w-full items-center justify-center pt-44 align-middle text-[8.6vw] xs:text-[5.6vw]">
         <div className="p-12 xs:w-1/2 xs:p-0">
           <div className="flex justify-between uppercase">
-            <p className="m-0">Bettina</p>
-            <p className="m-0">Sosa</p>
+            <p className="m-0">Lana</p>
           </div>
           <div className="flex justify-between uppercase">
-            <p className="m-0">software</p>
+            <p className="m-0">Bachaliashvili</p>
+          </div>
+          <div className="flex justify-between uppercase">
+            <p className="m-0">Brand</p>
             <p className="m-0">&</p>
+            <p className="m-0">Marketing</p>
           </div>
           <div className="flex justify-between uppercase">
-            <p className="m-0">design</p>
-            <p className="m-0">engineer</p>
+            <p className="m-0">Manager</p>
           </div>
           <div className="flex justify-between uppercase">
             <p className="m-0">Ldn </p>
-            <Link href={'https://www.linkedin.com/in/bettina-sosa/'}>
+            <Link href={'https://linkedin.com/in/lana-bachaliashvili-825432110'}>
               <TextDisperse setBackground={setBackground}>
                 <p>→Linkedin</p>
               </TextDisperse>
