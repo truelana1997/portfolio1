@@ -9,12 +9,12 @@ import { ModalContext } from './modalContext';
 
 const projects = [
   {
-    title: 'M31 Controller',
+    title: 'Ravi',
     src: 'm31/controller.jpg',
     description:
       'A video/audio game controller to make digital entertainment more approachable to those with visual impairments.',
-    href: '/projects/m31',
-    tag: 'Prototyping',
+    href: '/projects/ravi',
+    tag: 'Beer',
     color: '#000000'
   },
   {
@@ -47,7 +47,14 @@ const projects = [
     href: '/projects/astra',
     tag: 'GIZMO',
     color: '#303030'
-  }
+  },
+  {
+    title: 'Hi App',
+    src: 'hi-app/hi-app.png',
+    href: '/projects/hi-app',
+    tag: 'Bank',
+    color: '#00A3E0'
+  },
 
   // {
   //   title: 'DAO social network',
@@ -82,13 +89,6 @@ const projects = [
   //   src: 'cubo/cubo.jpg',
   //   href: '/projects/cubo',
   //   tag: 'Electronics',
-  //   color: '#EFE8D3'
-  // },
-  // {
-  //   title: 'Tandem bike',
-  //   src: 'bike.png',
-  //   href: '/projects/tandem-bike-bike',
-  //   tag: 'CAD & optimisation',
   //   color: '#EFE8D3'
   // },
   // {

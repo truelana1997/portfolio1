@@ -31,9 +31,9 @@ export default function M31Project() {
     <div className="bg-foreground">
       <ProjectHero
         description={myRole}
-        media={'https://www.youtube.com/embed/bXaLimCtK50'}
+        media={'https://www.youtube.com/embed/l_1N8uWxzOU'}
         isImage={false}
-        title={'M31'}
+        title={'Ravi'}
       />
       <PageScrollParallax
         title={'Expanding the Non-Visual Output of Games'}

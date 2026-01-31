@@ -50,10 +50,9 @@ export default function TandemProject() {
     <div>
       <ProjectHero
         description={heroText}
-        media={assetUrl('/images/bike.png')}
-        isImage={true}
-        title={'StackeRs'}
-        bgColour={'background'}
+        media={'https://www.youtube.com/embed/bJpoOmqqb7E'}
+        isImage={false}
+        title={'Hi App'}
       />
       <TextGradient phrase={phrase} colour={'primary'} />
       <PageScrollParallax
