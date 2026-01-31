@@ -50,7 +50,7 @@ const projects = [
   },
   {
     title: 'Hi App',
-    src: 'hi-app/hi-app.png',
+    src: 'hi-app/hiapp.jpg',
     href: '/projects/hi-app',
     tag: 'Bank',
     color: '#00A3E0'
