@@ -3,28 +3,12 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
-import { useSpotify } from '@/hooks/useSpotify';
 import Layout from '@/components/layout';
-import { useGitHub } from '@/hooks/useGithub';
-import GitHubContributionsGraph from '@/app/about/githubActivity';
-import SpotifyPlaylists from '@/app/about/spotifyPlaylists';
 import Link from 'next/link';
 import { assetUrl } from '@/lib/basePath';
 
 export default function About() {
   const starsRef = useRef<HTMLDivElement>(null);
-  const {
-    playlists,
-    isLoading: spotifyLoading,
-    error: spotifyError,
-    topTracks
-  } = useSpotify();
-
-  const {
-    githubData,
-    isLoading: githubLoading,
-    error: githubError
-  } = useGitHub();
 
   useEffect(() => {
     // Animate stars
@@ -71,13 +55,6 @@ export default function About() {
                     alt="Profile picture"
                   />
                 </div>
-                {spotifyLoading ? (
-                  <p>Loading Spotify playlists...</p>
-                ) : spotifyError ? (
-                  <p>Error: {spotifyError}</p>
-                ) : playlists.length > 0 ? (
-                  <SpotifyPlaylists playlists={playlists} />
-                ) : null}
               </div>
 
               <div className="flex flex-col gap-10">
@@ -155,22 +132,6 @@ export default function About() {
                 </div>
               </div>
             </div>
-            <Link
-              className="flex flex-col gap-10 pt-10"
-              href="https://github.com/bettinasosa"
-            >
-              {githubLoading ? (
-                <div></div>
-              ) : githubError ? (
-                <div></div>
-              ) : githubData ? (
-                <GitHubContributionsGraph
-                  contributions={githubData.contributions}
-                  totalContributions={githubData.totalContributions}
-                  restrictedContributions={githubData.restrictedContributions}
-                />
-              ) : null}
-            </Link>
           </div>
         </div>
       </Layout>
