@@ -68,17 +68,17 @@ export default function Header() {
                 <div className="hover:rotate-[360deg]">©</div>
                 <div className="relative flex overflow-hidden">
                   <div className="ease-custom-cubic transition-transform duration-500 group-hover:translate-x-[-100%]">
-                    coded by
+                    call me
                   </div>
-                  <div className="ease-custom-cubic px-1 transition-transform duration-500 group-hover:translate-x-[-65px]">
-                    Bettina
+                  <div className="ease-custom-cubic px-1 transition-transform duration-500 group-hover:translate-x-[-55px]">
+                    True
                   </div>
 
                   <div
                     className="ease-custom-cubic
-              translate-x-full transition-transform duration-500 group-hover:translate-x-[-65px]"
+              translate-x-full transition-transform duration-500 group-hover:translate-x-[-55px]"
                   >
-                    Sosa
+                    Lana
                   </div>
                 </div>
               </>

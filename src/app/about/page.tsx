@@ -27,7 +27,7 @@ export default function About() {
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-b from-purple-200 via-purple-300 to-yellow-200">
-      <Layout title="I'm Bettina" center>
+      <Layout title="If you’re reading this, you’ve officially landed on my planet 👽" center>
         <div className="relative min-h-screen">
           <div ref={starsRef}>
             {[...Array(50)].map((_, i) => (
@@ -60,12 +60,11 @@ export default function About() {
               <div className="flex flex-col gap-10">
                 <div className="text-primary-950/70 dark:text-primary-200/70 space-y-8">
                   <p className="text-2xl font-semibold">
-                    A software engineer and designer with a passion for
-                    innovation and cutting-edge technology.
+                    I am Lana, a post-Soviet kid with a big imagination.
                   </p>
                   <p className="text-lg sm:text-xl">
-                    I have a strong track record of building and deploying
-                    successful products.
+                    Growing up in a world of constant reinvention taught me that if a path doesn’t exist, you should imagine it into reality.
+                    For 7 years, I’ve been helping brands with campaigns that sometimes raise awareness, sometimes shift perceptions, and sometimes drive the numbers that matter. 
                   </p>
                   <p className="text-lg sm:text-xl">
                     At{' '}
