@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Layout from '@/components/layout';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,12 +8,22 @@ import { assetUrl } from '@/lib/basePath';
 // Gallery items data
 const galleryItems = [
   {
-    id: 'onethoughtaday',
-    title: 'One Thought A Day',
-    description: 'A minimalist journaling application with elegant typography',
-    imagePath: assetUrl('/images/onethoughtaday/homepage.png'),
+    id: 'cannes-bronze',
+    title: 'Young Lions Georgia - Bronze in PR',
+    description: 'Issued by Cannes Lions Georgia  - June 2024',
+    imagePath: assetUrl('/images/cannes/cannes-bronze.jpg'),
     link: 'https://www.onethoughtaday.com',
-    tags: ['UI/UX Design', 'Minimalism']
+    pdfPath: assetUrl('/pdfs/cannes-bronze.pdf'), // Optional: Add PDF path here
+    tags: ['PR', 'NGO']
+  },
+  {
+    id: 'cannes-gold',
+    title: 'Young Lions Georgia - Gold in PR',
+    description: 'Issued by Cannes Lions Georgia  - April 2024',
+    imagePath: assetUrl('/images/cannes/cannes-gold.jpg'),
+    link: 'https://www.onethoughtaday.com',
+    pdfPath: assetUrl('/pdfs/cannes-gold.pdf'), // Optional: Add PDF path here
+    tags: ['PR', 'Sport']
   }
   // Add more items as needed
 ];
@@ -21,6 +31,40 @@ const galleryItems = [
 export default function Gallery() {
   // Refs for each card to apply parallax effect
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // State for PDF modal
+  const [pdfModalOpen, setPdfModalOpen] = useState(false);
+  const [currentPdfPath, setCurrentPdfPath] = useState<string | null>(null);
+
+  // Function to open PDF modal
+  const openPdfModal = (pdfPath: string) => {
+    setCurrentPdfPath(pdfPath);
+    setPdfModalOpen(true);
+  };
+
+  // Function to close PDF modal
+  const closePdfModal = () => {
+    setPdfModalOpen(false);
+    setCurrentPdfPath(null);
+  };
+
+  // Effect to handle background scroll prevention
+  useEffect(() => {
+    if (pdfModalOpen) {
+      // Prevent scrolling
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+    } else {
+      // Restore scrolling
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+  }, [pdfModalOpen]);
 
   useEffect(() => {
     // Initialize refs array
@@ -53,6 +97,47 @@ export default function Gallery() {
 
   return (
     <Layout title="web gallery">
+      {/* PDF Modal */}
+      {pdfModalOpen && currentPdfPath && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 overflow-hidden"
+          onClick={closePdfModal}
+        >
+          <div
+            className="relative h-[90vh] w-[90vw] bg-white rounded-lg shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={closePdfModal}
+              className="absolute -right-4 -top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-gray-700 shadow-lg transition-colors hover:bg-gray-100"
+              aria-label="Close PDF viewer"
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            {/* PDF Viewer */}
+            <iframe
+              src={currentPdfPath}
+              className="h-full w-full rounded-lg"
+              title="PDF Viewer"
+            />
+          </div>
+        </div>
+      )}
+
       <div className="min-h-screen bg-white px-4 py-12 md:px-8 lg:px-16">
         <div className="mb-12 text-center">
           <h1 className="mb-4 text-4xl font-bold text-gray-900">
@@ -96,27 +181,49 @@ export default function Gallery() {
                     </span>
                   ))}
                 </div>
-                <Link
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
-                >
-                  View Project
-                  <svg
-                    className="ml-2 h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+                {item.pdfPath ? (
+                  <button
+                    onClick={() => openPdfModal(item.pdfPath!)}
+                    className="inline-flex items-center rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </Link>
+                    View Project
+                    <svg
+                      className="ml-2 h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </button>
+                ) : (
+                  <Link
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center rounded-full border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
+                  >
+                    View Project
+                    <svg
+                      className="ml-2 h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </Link>
+                )}
               </div>
             </div>
           ))}
