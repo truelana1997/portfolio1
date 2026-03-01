@@ -10,12 +10,12 @@ import { ModalContext } from './modalContext';
 const projects = [
   {
     title: 'Ravi',
-    src: 'm31/controller.jpg',
+    src: 'ravi/ravi-cover.jpg',
     description:
       'A video/audio game controller to make digital entertainment more approachable to those with visual impairments.',
     href: '/projects/ravi',
     tag: 'Beer',
-    color: '#000000'
+    color: '#fde021'
   },
   {
     title: 'AXO',

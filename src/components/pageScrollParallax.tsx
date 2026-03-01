@@ -41,7 +41,7 @@ export default function PageScrollParallax({
     <div ref={container} className="mb-[16vh] mt-[6vh] min-h-screen">
       <div className="ml-[10vw]">
         <motion.h1
-          className="mt-[24px] text-[3vw] uppercase leading-[5vw] text-background mix-blend-difference"
+          className="mt-[24px] text-[2vw] uppercase leading-[5vw] text-background mix-blend-difference"
           style={{ y: sm }}
         >
           {title}
