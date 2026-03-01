@@ -142,10 +142,13 @@ export default function Gallery() {
         <div className="mb-12 text-center">
           {/* <h1 className="mb-4 text-4xl font-bold text-gray-900">
             Design Gallery
-          </h1> */}
+          </h1>
           <p className="mx-auto max-w-2xl text-lg text-gray-600">
             Projects that won me medals at Cannes Young Lions 2024.
-          </p>
+          </p> */}
+          <h1 className="text-xs text-background mix-blend-difference sm:text-base">
+            I took part in the Young Lions PR competition. The challenge was to create an innovative PR strategy, and the brief came from Jood Kitchen. They asked us, as participants, to develop a powerful PR idea to raise awareness of the benefits of Jood Kitchen. The ultimate goal was to help them become more independent and financially self-sufficient in the long run. It was more than just a contest; it felt like an opportunity to support a great cause and help secure its future.
+          </h1>
         </div>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
