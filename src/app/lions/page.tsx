@@ -96,7 +96,7 @@ export default function Gallery() {
   }, []);
 
   return (
-    <Layout title="web gallery">
+    <Layout title="Cannes Young Lions 2024">
       {/* PDF Modal */}
       {pdfModalOpen && currentPdfPath && (
         <div
@@ -140,12 +140,11 @@ export default function Gallery() {
 
       <div className="min-h-screen bg-white px-4 py-12 md:px-8 lg:px-16">
         <div className="mb-12 text-center">
-          <h1 className="mb-4 text-4xl font-bold text-gray-900">
+          {/* <h1 className="mb-4 text-4xl font-bold text-gray-900">
             Design Gallery
-          </h1>
+          </h1> */}
           <p className="mx-auto max-w-2xl text-lg text-gray-600">
-            A collection of my design work and web projects featuring various
-            styles and approaches.
+            Projects that won me medals at Cannes Young Lions 2024.
           </p>
         </div>
 
