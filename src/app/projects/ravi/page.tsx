@@ -23,7 +23,6 @@ export default function M31Project() {
     'And with this phrase, “First, I’ll raise them” - “Why Not?”, we make a statement. ' +
     'The response exceeded expectations. At one point, it became almost impossible to find RAVI in stores. All this effort was culminated in a reward - shortlist at the AD Black Sea festival.';
 
-  const description = 'Dunno, why not?';
   const myRole = 
     'RAVI beer was created to speak directly to Gen Z in Georgia. The name itself translates to “Dunno”,' +
     'a word you constantly hear from Gen Z. Paired with the slogan “Why Not?”,' +
@@ -41,7 +40,6 @@ export default function M31Project() {
       <PageScrollParallax
         title={'Instead of big names, we chose micro-influencers'}
         body={introduction}
-        word={description}
         staticImgs={[Picture1, Picture2, Picture3]}
       />
       <div>

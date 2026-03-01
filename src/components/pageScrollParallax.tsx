@@ -11,7 +11,7 @@ interface ImageProps {
 
 interface Props {
   staticImgs: StaticImageData[];
-  word: string;
+  word?: string;
   title: string;
   body: string;
 }
@@ -49,6 +49,7 @@ export default function PageScrollParallax({
         <div className="mb-12 max-w-6xl text-background mix-blend-difference">
           <TextFormatter text={body} />
         </div>
+        {word && (
         <div>
           <p className="mt-12 text-[2vw] uppercase text-primary">
             {word.split('').map((letter, i) => (
@@ -66,6 +67,7 @@ export default function PageScrollParallax({
             ))}
           </p>
         </div>
+        )}
       </div>
       <div className="relative mt-[5vh] flex justify-center">
         {images.map(({ src, y }, i) => (
