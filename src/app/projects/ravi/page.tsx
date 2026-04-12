@@ -10,8 +10,8 @@ import { assetUrl } from '@/lib/basePath';
 
 export default function M31Project() {
   const researchAssets = [
+    assetUrl('/images/ravi/presentation-board-ravi-2.jpg'),
     assetUrl('/images/ravi/ravi-2.jpg'),
-    assetUrl('/images/m31/app.png'),
     assetUrl('/images/m31/packaging.png'),
     assetUrl('/images/m31/research.png'),
     assetUrl('/images/m31/specs.png')
