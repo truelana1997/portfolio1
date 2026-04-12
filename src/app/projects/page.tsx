@@ -18,11 +18,11 @@ const projects = [
     color: '#fde021'
   },
   {
-    title: 'AXO',
-    src: 'axo/astronaut-square.png',
-    href: '/projects/axo',
-    tag: 'Bio Materials',
-    color: '#ee5622'
+    title: 'UN Women',
+    src: 'un-women/cover.jpg',
+    href: '/projects/un-women',
+    tag: 'NGO',
+    color: '#009CDB'
   },
   {
     title: 'StyleSync',

@@ -17,7 +17,7 @@ export default function AstraProject() {
   }, []);
 
   const researchImages = [
-    assetUrl('/images/axo/astronaut.png'),
+    assetUrl('/images/un-women/img-1.jpg'),
     assetUrl('/images/axo/prototype.png'),
     assetUrl('/images/axo/concept.png'),
     assetUrl('/images/axo/poster1.png'),
@@ -55,9 +55,9 @@ export default function AstraProject() {
     <div>
       <ProjectHero
         description={heroText}
-        media={'https://player.vimeo.com/video/955515979'}
+        media={'https://www.youtube.com/embed/f8-Nv2RPAPo'}
         isImage={false}
-        title={'AXOwear'}
+        title={'UN Women'}
       />
       <div className="h-[20vh] w-full bg-gradient-to-b from-foreground to-background opacity-60"></div>
       <TextGradient phrase={phrase} colour={'destructive'} />

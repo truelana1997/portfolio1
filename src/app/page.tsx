@@ -33,7 +33,7 @@ const slider2 = [
   },
   {
     color: '#9289BD',
-    src: 'axo/prototype.png'
+    src: 'un-women/prototype.png'
   },
   {
     color: 'white',

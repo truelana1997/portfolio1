@@ -121,10 +121,10 @@ export default function About() {
                     , which was awarded a gold prize in the Creative Conscience
                     Awards, and{' '}
                     <Link
-                      href="/projects/axo"
+                      href="/projects/un-women"
                       className="font-semibold underline"
                     >
-                      AxoWear
+                      UN Women
                     </Link>
                     , which was exhibited at the Design Museum London.
                   </p>
