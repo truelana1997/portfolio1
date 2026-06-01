@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from 'react';
+import { useRef, type ReactNode } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import { motion, MotionValue, useScroll, useTransform } from 'framer-motion';
 import TextFormatter from '@/components/util/textFormatter';
@@ -12,7 +12,7 @@ interface ImageProps {
 interface Props {
   staticImgs: StaticImageData[];
   word?: string;
-  title: string;
+  title: ReactNode;
   body: string;
 }
 export default function PageScrollParallax({
