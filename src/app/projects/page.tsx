@@ -18,6 +18,13 @@ const projects = [
     color: '#fde021'
   },
   {
+    title: 'Radio Free Europe/Radio Liberty',
+    src: 'liberty/liberty-cover.jpg',
+    href: '/projects/liberty',
+    tag: 'Media organization',
+    color: '#FF5400'
+  },
+  {
     title: 'UN Women',
     src: 'un-women/cover.jpg',
     href: '/projects/un-women',

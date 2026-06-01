@@ -9,12 +9,18 @@ import React from 'react';
 import { assetUrl } from '@/lib/basePath';
 
 export default function M31Project() {
-  const researchAssets = [
-    assetUrl('/images/ravi/presentation-board-ravi-2.jpg'),
-    assetUrl('/images/ravi/ravi-2.jpg'),
-    assetUrl('/images/m31/packaging.png'),
-    assetUrl('/images/m31/research.png'),
-    assetUrl('/images/m31/specs.png')
+  type ResearchBlock =
+    | { type: 'image'; src: string }
+    | { type: 'text'; content: string };
+
+  const researchAssets: ResearchBlock[] = [
+    { type: 'image', src: assetUrl('/images/ravi/presentation-board-ravi-2.jpg') },
+    {
+      type: 'text',
+      content:
+        'Add your text here describing the research and the thinking behind the campaign.',
+    },
+    { type: 'image', src: assetUrl('/images/ravi/ravi-2.jpg') },
   ];
   const introduction =
     'Niche voices within Gen Z communities who felt authentic and relatable due to their lifestyle. ' +
@@ -43,17 +49,23 @@ export default function M31Project() {
         staticImgs={[Picture1, Picture2, Picture3]}
       />
       <div>
-        {researchAssets.map((asset, index) => (
-          <Image
-            key={index}
-            src={asset}
-            alt="Project specs"
-            width={700}
-            height={500}
-            quality={100}
-            layout="responsive"
-          />
-        ))}
+        {researchAssets.map((block, index) =>
+          block.type === 'image' ? (
+            <Image
+              key={index}
+              src={block.src}
+              alt="Project specs"
+              width={700}
+              height={500}
+              quality={100}
+              layout="responsive"
+            />
+          ) : (
+            <p key={index} className="text-background px-8 py-12 text-lg">
+              {block.content}
+            </p>
+          )
+        )}
       </div>
     </div>
   );
