@@ -7,11 +7,14 @@ import { clsx } from 'clsx';
 gsap.registerPlugin(ScrollTrigger);
 export default function TextGradient({
   phrase,
-  colour
+  colour,
+  fontSize = 'text-[24px] sm:text-[50px]'
 }: {
   phrase: string;
   colour: string;
+  fontSize?: string;
 }) {
+  const isHex = colour?.startsWith('#');
   let refs = useRef<HTMLSpanElement[]>([]);
   const container = useRef(null);
   const body = useRef(null);
@@ -41,7 +44,10 @@ export default function TextGradient({
       const letters = splitLetters(word);
       body.push(
         <p
-          className="m-0 mr-4 inline-block whitespace-nowrap p-0 text-[24px] font-semibold sm:text-[50px]"
+          className={clsx(
+            'm-0 mr-4 inline-block whitespace-nowrap p-0 font-semibold',
+            fontSize
+          )}
           key={word + '_' + i}
         >
           {letters}
@@ -72,9 +78,11 @@ export default function TextGradient({
   return (
     <main
       ref={container}
+      style={isHex ? { color: colour } : undefined}
       className={clsx(
         'align-end mb-[20vh] flex h-[50vh] justify-center sm:pt-[10vh]',
-        colour ? `text-${colour}` : 'text-background mix-blend-difference'
+        !colour && 'text-background mix-blend-difference',
+        colour && !isHex && `text-${colour}`
       )}
     >
       <div ref={body} className="flex w-[90%] flex-wrap">
