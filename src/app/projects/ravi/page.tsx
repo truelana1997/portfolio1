@@ -4,15 +4,11 @@ import PageScrollParallax from '@/components/pageScrollParallax';
 import Picture1 from '../../../../public/images/ravi/ravi-1.jpg';
 import Picture3 from '../../../../public/images/ravi/ravi-3.png';
 import Picture2 from '../../../../public/images/ravi/ravi-4.png';
-import Image from 'next/image';
 import React from 'react';
 import { assetUrl } from '@/lib/basePath';
+import ResearchBlocks, { ResearchBlock } from '@/components/researchBlocks';
 
 export default function M31Project() {
-  type ResearchBlock =
-    | { type: 'image'; src: string }
-    | { type: 'text'; content: string };
-
   const researchAssets: ResearchBlock[] = [
     { type: 'image', src: assetUrl('/images/ravi/presentation-board-ravi-2.jpg') },
     {
@@ -49,23 +45,7 @@ export default function M31Project() {
         staticImgs={[Picture1, Picture2, Picture3]}
       />
       <div>
-        {researchAssets.map((block, index) =>
-          block.type === 'image' ? (
-            <Image
-              key={index}
-              src={block.src}
-              alt="Project specs"
-              width={700}
-              height={500}
-              quality={100}
-              layout="responsive"
-            />
-          ) : (
-            <p key={index} className="text-background px-8 py-12 text-lg">
-              {block.content}
-            </p>
-          )
-        )}
+        <ResearchBlocks blocks={researchAssets} />
       </div>
     </div>
   );

@@ -4,15 +4,12 @@ import PageScrollParallax from '@/components/pageScrollParallax';
 import Picture1 from '../../../../public/images/liberty/liberty-2.jpg';
 import Picture2 from '../../../../public/images/liberty/liberty-1.jpg';
 import Picture3 from '../../../../public/images/liberty/liberty-3.jpg';
-import Image from 'next/image';
 import React from 'react';
 import { assetUrl } from '@/lib/basePath';
+import ResearchBlocks, { ResearchBlock } from '@/components/researchBlocks';
+import Credits, { CreditEntry } from '@/components/credits';
 
 export default function LibertyProject() {
-  type ResearchBlock =
-    | { type: 'image'; src: string }
-    | { type: 'text'; content: string };
-
   const researchAssets: ResearchBlock[] = [
     { type: 'image', src: assetUrl('/images/liberty/glass-drawing.jpg') },
     {
@@ -24,7 +21,7 @@ export default function LibertyProject() {
 
   ];
 
-  const credits: { role: string; name?: string }[] = [
+  const credits: CreditEntry[] = [
     { role: 'Client', name: 'Radio Free Europe/Radio Liberty' },
     { role: 'Marketing Director', name: 'Luka Ghughunishvili' },
     { role: 'Agency', name: 'Leavingstone' },
@@ -76,51 +73,12 @@ export default function LibertyProject() {
         staticImgs={[Picture1, Picture2, Picture3]}
       />
       <div>
-        {researchAssets.map((block, index) =>
-          block.type === 'image' ? (
-            <Image
-              key={index}
-              src={block.src}
-              alt="Project specs"
-              width={700}
-              height={500}
-              quality={100}
-              layout="responsive"
-            />
-          ) : (
-            <p key={index} className="text-background px-8 py-12 text-lg">
-              {block.content}
-            </p>
-          )
-        )}
+        <ResearchBlocks blocks={researchAssets} />
       </div>
-      <div className="relative w-full">
-        <Image
-          src={assetUrl('/images/liberty/robot-arm.jpg')}
-          alt="Credits"
-          width={1920}
-          height={1080}
-          quality={100}
-          layout="responsive"
-        />
-        <div className="absolute inset-0 flex items-center justify-start bg-black/70 px-8 md:px-16">
-          <dl className="space-y-0.5 text-left text-xs font-light text-white">
-            <dt className="mb-2 text-sm font-normal uppercase tracking-widest">
-              Credits
-            </dt>
-            {credits.map((entry, index) =>
-              entry.name ? (
-                <div key={index} className="flex gap-1">
-                  <dt>{entry.role}:</dt>
-                  <dd>{entry.name}</dd>
-                </div>
-              ) : (
-                <dt key={index}>{entry.role}</dt>
-              )
-            )}
-          </dl>
-        </div>
-      </div>
+      <Credits
+        image={assetUrl('/images/liberty/robot-arm.jpg')}
+        credits={credits}
+      />
     </div>
   );
 }

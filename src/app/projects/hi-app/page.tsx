@@ -3,16 +3,20 @@
 import React, { useEffect } from 'react';
 import Lenis from 'lenis';
 import ProjectHero from '@/app/projects/project/hero';
-import Image from 'next/image';
-import Picture1 from '../../../../public/images/bike.png';
-import Picture2 from '../../../../public/images/bike.png';
-import Picture3 from '../../../../public/images/bike.png';
+import Picture1 from '../../../../public/images/hi-app/hiapp-1.jpg';
+import Picture2 from '../../../../public/images/hi-app/hiapp-2.jpg';
+import Picture3 from '../../../../public/images/hi-app/hiapp-3.jpg';
 import PageScrollParallax from '@/components/pageScrollParallax';
 import TextGradient from '@/components/animations/textAnimations/textGradient';
+import ResearchBlocks, { ResearchBlock } from '@/components/researchBlocks';
 import { assetUrl } from '@/lib/basePath';
 
 export default function TandemProject() {
-  const researchImages = [assetUrl('/images/bike.png'), assetUrl('/images/bike.png')];
+  const researchImages: ResearchBlock[] = [
+    { type: 'image', src: assetUrl('/images/bike.png') },
+    { type: 'text', content: 'Add your text here.' },
+    { type: 'image', src: assetUrl('/images/bike.png') },
+  ];
 
   const phrase =
     'By 2050, there will be more plastic than fish in the ocean by weight. ' +
@@ -59,20 +63,10 @@ export default function TandemProject() {
         title={'StackeRs'}
         body={introduction}
         word={''}
-        staticImgs={[Picture1, Picture2, Picture3]}
+        staticImgs={[Picture2, Picture3, Picture1]}
       />
       <div className="h-10 w-full p-24"></div>
-      {researchImages.map((asset, index) => (
-        <Image
-          key={index}
-          src={asset}
-          alt="Project specs"
-          width={700}
-          height={500}
-          quality={100}
-          layout="responsive"
-        />
-      ))}
+      <ResearchBlocks blocks={researchImages} textClassName="text-foreground" />
     </div>
   );
 }
